@@ -4,6 +4,7 @@
 #include <ctype.h>
 const int SIZE = 100;
 int menu();
+void control(int choice, char str[]);
 char *input(char *str);
 void display(char *str);
 void reverse(char str[]);
@@ -13,34 +14,94 @@ int count_v_c(char str[], int *x, int *y);
 int main()
 {
   char string[SIZE];
-  int vowel = 0, consonant = 0;
-  printf("\nWelcome To Sting-Processor");
-  input(string);
-  display(string);
-  reverse(string);
-  display(string);
-  is_palindrome(string);
-  int word = count_words(string);
-  printf("\n%d", word);
-  count_v_c(string, &vowel, &consonant);
-  printf("\nV=%d,C=%d", vowel, consonant);
+  printf("\nWelcome To String-Processor");
+
+  while (1)
+  {
+    int choice = menu();
+    control(choice, string);
+    if (choice == 7)
+      break;
+  }
+  // printf("\n%s", string);
+  // display(string);
+  // reverse(string);
+  // display(string);
+  // is_palindrome(string);
+  // int word = count_words(string);
+  // printf("\n%d", word);
+  // count_v_c(string, &vowel, &consonant);
+  // printf("\nV=%d,C=%d", vowel, consonant);
   return 0;
+}
+void control(int choice, char str[])
+{
+  switch (choice)
+  {
+  case 1:
+    input(str);
+    break;
+  case 2:
+    display(str);
+    break;
+  case 3:
+    reverse(str);
+    break;
+  case 4:
+    is_palindrome(str);
+    break;
+  case 5:
+    printf("\nWords in %s is %d", str, count_words(str));
+    break;
+  case 6:
+  {
+    int vowel = 0, consonant = 0;
+    count_v_c(str, &vowel, &consonant);
+    printf("Vowels:%d|Cosonants:%d", vowel, consonant);
+    break;
+  }
+  case 7:
+    printf("\nBye have fun!!");
+    printf("\nDevloped by-bixuuu4u");
+    exit(0);
+    break;
+
+  default:
+    break;
+  }
+}
+int menu()
+{
+  int choice;
+  printf("\n1.Enter String.");
+  printf("\n2.Display String.");
+  printf("\n3.Reverse String.");
+  printf("\n4.Check Palindrome.");
+  printf("\n5.Count Words.");
+  printf("\n6.Count Vowels & Consonants.");
+  printf("\n7.Exit.");
+  printf("\nPlease Enter Your Choice:");
+  scanf("%d", &choice);
+  while (getchar() != '\n')
+    ;
+
+  return choice;
 }
 int count_v_c(char str[], int *x, int *y)
 {
   int lenght = strlen(str);
-  int c=0, v = 0;
+  int c = 0, v = 0;
   int index = 0;
 
   while (str[index] != '\0')
   {
-  char ch = tolower(str[index]);
+    char ch = tolower(str[index]);
 
     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
     {
       v++;
     }
-    else if(isalpha(ch))
+    else if (isalpha(ch))
     {
       c++;
     }
@@ -65,14 +126,13 @@ int count_words(char str[])
 }
 int is_palindrome(char str[])
 {
-  int lenght = strlen(str);
-  for (int i = 0; i < lenght / 2; i++)
+  int length = strlen(str);
+  for (int i = 0; i < length / 2; i++)
   {
-    if (str[i] != str[lenght - i - 1])
+    if (tolower(str[i]) != tolower(str[length - i - 1]))
     {
       return printf("\nFalse");
     }
-    
   }
   return printf("\nTrue");
 }
@@ -88,7 +148,7 @@ void reverse(char str[])
 }
 void display(char *str)
 {
-  // puts("\n");
+  printf("Your String: ");
   puts(str);
 }
 char *input(char *str)
