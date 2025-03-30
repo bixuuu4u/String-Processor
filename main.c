@@ -9,7 +9,7 @@ char *input(char *str);
 void display(char *str);
 void reverse(char str[]);
 int is_palindrome(char str[]);
-int count_letters(char str[]);
+int count_words(char str[]);
 int count_v_c(char str[], int *x, int *y);
 int main()
 {
@@ -28,7 +28,7 @@ int main()
   // reverse(string);
   // display(string);
   // is_palindrome(string);
-  // int word = count_letters(string);
+  // int word = count_words(string);
   // printf("\n%d", word);
   // count_v_c(string, &vowel, &consonant);
   // printf("\nV=%d,C=%d", vowel, consonant);
@@ -51,7 +51,7 @@ void control(int choice, char str[])
     is_palindrome(str);
     break;
   case 5:
-    printf("\nWords in %s is %d", str, count_letters(str));
+    printf("\nWords in %s is %d", str, count_words(str));
     break;
   case 6:
   {
@@ -111,7 +111,7 @@ int count_v_c(char str[], int *x, int *y)
   *y = c;
   return 0;
 }
-int count_letters(char str[])
+int count_words(char str[])
 {
   int lenght = strlen(str);
   int counter = 0;
