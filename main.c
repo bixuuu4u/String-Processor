@@ -39,7 +39,14 @@ void control(int choice, char str[])
     reverse(str);
     break;
   case 4:
-    is_palindrome(str);
+    if (is_palindrome(str))
+    {
+      printf("\n%s IS PALINDROME", str);
+    }
+    else
+    {
+      printf("\n%s IS NOT PALINDROME", str);
+    }
     break;
   case 5:
     printf("\nWords in %s is %d", str, count_words(str));
@@ -122,10 +129,10 @@ int is_palindrome(char str[])
   {
     if (tolower(str[i]) != tolower(str[length - i - 1]))
     {
-      return printf("\nFalse");
+      return 0;
     }
   }
-  return printf("\nTrue");
+  return 1;
 }
 void reverse(char str[])
 {
