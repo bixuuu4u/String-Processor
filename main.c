@@ -4,6 +4,7 @@
 #include <ctype.h>
 const int SIZE = 100;
 int menu();
+int ifempty(char str[]);
 void control(int choice, char str[]);
 char *input(char *str);
 void display(char *str);
@@ -11,18 +12,34 @@ void reverse(char str[]);
 int is_palindrome(char str[]);
 int count_words(char str[]);
 int count_v_c(char str[], int *x, int *y);
+void uppercase(char str[], char upperstring[]);
+void lowercase(char str[], char upperstring[]);
 int main()
 {
   char string[SIZE];
-  printf("\nWelcome To String-Processor");
+  string[0] = '\0';
 
-  while (1)
+  printf("\nWelcome To String-Processor");
+  int choice;
+  do
   {
-    int choice = menu();
-    control(choice, string);
-    if (choice == 7)
-      break;
-  }
+    choice = menu();
+    if (choice == 9)
+    {
+      printf("\nBye have fun!!");
+      printf("\nDevloped by-bixuuu4u");
+      exit(0);
+    }
+    if (choice != 1 && ifempty(string))
+    {
+      printf("Error!!String is empty cant do that operation.");
+    }
+    else
+    {
+      control(choice, string);
+    }
+  } while (choice != 9);
+
   return 0;
 }
 void control(int choice, char str[])
@@ -59,6 +76,20 @@ void control(int choice, char str[])
     break;
   }
   case 7:
+  {
+    char upperstring[SIZE];
+    uppercase(str, upperstring);
+    printf("\nString:%s", upperstring);
+    break;
+  }
+  case 8:
+  {
+    char lowerstring[SIZE];
+    lowercase(str, lowerstring);
+    printf("\nString:%s", lowerstring);
+    break;
+  }
+  case 9:
     printf("\nBye have fun!!");
     printf("\nDevloped by-bixuuu4u");
     exit(0);
@@ -77,13 +108,37 @@ int menu()
   printf("\n4.Check Palindrome.");
   printf("\n5.Count Words.");
   printf("\n6.Count Vowels & Consonants.");
-  printf("\n7.Exit.");
+  printf("\n7.Uppercase.");
+  printf("\n8.Lowercase.");
+  printf("\n9.Exit.");
   printf("\nPlease Enter Your Choice:");
   scanf("%d", &choice);
   while (getchar() != '\n')
     ;
 
   return choice;
+}
+int ifempty(char str[])
+{
+  return (strlen(str) == 0);
+}
+void uppercase(char str[], char upperstring[])
+{
+  int lenght = strlen(str);
+
+  for (int i = 0; i < lenght; i++)
+  {
+    upperstring[i] = toupper(str[i]);
+  }
+}
+void lowercase(char str[], char lowerstring[])
+{
+  int lenght = strlen(str);
+
+  for (int i = 0; i < lenght; i++)
+  {
+    lowerstring[i] = tolower(str[i]);
+  }
 }
 int count_v_c(char str[], int *x, int *y)
 {
