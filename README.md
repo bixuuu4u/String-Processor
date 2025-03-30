@@ -78,6 +78,8 @@ Devloped by-bixuuu4u<br>
 - **Better Print Formatting**: Enhance the output display with aligned text, borders, or color (if supported by the terminal) for a more polished user experience.
 -**Convert String to Uppercase & Lowercase**
 -**Convert To Binary**
+-**Save To File**
+  
 ## Developer
 
 Developed by: **bixuuu4u**
