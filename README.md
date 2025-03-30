@@ -79,6 +79,7 @@ Devloped by-bixuuu4u<br>
 -**Convert String to Uppercase & Lowercase**
 -**Convert To Binary**
 -**Save To File**
+-**Capitilized and Titled**
   
 ## Developer
 
