@@ -23,15 +23,6 @@ int main()
     if (choice == 7)
       break;
   }
-  // printf("\n%s", string);
-  // display(string);
-  // reverse(string);
-  // display(string);
-  // is_palindrome(string);
-  // int word = count_words(string);
-  // printf("\n%d", word);
-  // count_v_c(string, &vowel, &consonant);
-  // printf("\nV=%d,C=%d", vowel, consonant);
   return 0;
 }
 void control(int choice, char str[])
