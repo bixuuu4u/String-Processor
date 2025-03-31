@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#define EXIT_CHOICE 10
 const int SIZE = 100;
 int menu();
 int ifempty(char str[]);
@@ -14,6 +15,7 @@ int count_words(char str[]);
 int count_v_c(char str[], int *x, int *y);
 void uppercase(char str[], char upperstring[]);
 void lowercase(char str[], char upperstring[]);
+void tobinary(char str[], char binary[]);
 int main()
 {
   char string[SIZE];
@@ -24,7 +26,7 @@ int main()
   do
   {
     choice = menu();
-    if (choice == 9)
+    if (choice == EXIT_CHOICE)
     {
       printf("\nBye have fun!!");
       printf("\nDevloped by-bixuuu4u");
@@ -38,7 +40,7 @@ int main()
     {
       control(choice, string);
     }
-  } while (choice != 9);
+  } while (choice != EXIT_CHOICE);
 
   return 0;
 }
@@ -90,6 +92,14 @@ void control(int choice, char str[])
     break;
   }
   case 9:
+  {
+    char binary[SIZE * 9];
+    binary[0] = '\0';
+    tobinary(str, binary);
+    printf("\nBinary Form:%s", binary);
+    break;
+  }
+  case EXIT_CHOICE:
     printf("\nBye have fun!!");
     printf("\nDevloped by-bixuuu4u");
     exit(0);
@@ -98,6 +108,35 @@ void control(int choice, char str[])
   default:
     break;
   }
+}
+void tobinary(char str[], char binary[])
+{
+  int length = strlen(str);
+  int bIndex = 0;
+  for (int i = 0; i < length; i++)
+  {
+    int num = (unsigned char)str[i];
+    char temp[8];
+    int tTindex = 7;
+
+    while (tTindex >= 0)
+    {
+      temp[tTindex] = (num) % 2 + '0';
+      num /= 2;
+      tTindex--;
+    }
+    for (int j = 0; j < 8; j++)
+    {
+      binary[bIndex] = temp[j];
+      bIndex++;
+    }
+    if (i < length - 1)
+    {
+      binary[bIndex] = ' ';
+      bIndex++;
+    }
+  }
+  binary[bIndex] = '\0';
 }
 int menu()
 {
@@ -110,7 +149,8 @@ int menu()
   printf("\n6.Count Vowels & Consonants.");
   printf("\n7.Uppercase.");
   printf("\n8.Lowercase.");
-  printf("\n9.Exit.");
+  printf("\n9. Convert to Binary.");
+  printf("\n10.Exit.");
   printf("\nPlease Enter Your Choice:");
   scanf("%d", &choice);
   while (getchar() != '\n')

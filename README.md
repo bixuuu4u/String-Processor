@@ -76,8 +76,8 @@ Devloped by-bixuuu4u<br>
 
 - **Improved Word Counting**: Modify `count_words()` to accurately count words (sequences of non-space characters separated by spaces).
 - **Better Print Formatting**: Enhance the output display with aligned text, borders, or color (if supported by the terminal) for a more polished user experience.
-- **Convert String to Uppercase & Lowercase**
-- **Convert To Binary**
+- **[Done]Convert String to Uppercase & Lowercase**
+- **[Done]Convert To Binary**
 - **Save To File**
 - **Capitilized and Titled**
 - **Undo Last Operation Backup the previous string before modification**
