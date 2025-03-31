@@ -145,8 +145,8 @@ int menu()
   printf("\n8. Lowercase.");
   printf("\n9. Capitalized.");
   printf("\n10. Titled.");
-  printf("\n11. Convert to Binary."); 
-  printf("\n12. Exit.");              
+  printf("\n11. Convert to Binary.");
+  printf("\n%d. Exit.", EXIT_CHOICE);
   printf("\nPlease Enter Your Choice:");
   scanf("%d", &choice);
   while (getchar() != '\n')
