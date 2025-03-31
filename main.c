@@ -109,6 +109,26 @@ void control(int choice, char str[])
     break;
   }
 }
+int menu()
+{
+  int choice;
+  printf("\n1.Enter String.");
+  printf("\n2.Display String.");
+  printf("\n3.Reverse String.");
+  printf("\n4.Check Palindrome.");
+  printf("\n5.Count Words.");
+  printf("\n6.Count Vowels & Consonants.");
+  printf("\n7.Uppercase.");
+  printf("\n8.Lowercase.");
+  printf("\n9. Convert to Binary.");
+  printf("\n10.Exit.");
+  printf("\nPlease Enter Your Choice:");
+  scanf("%d", &choice);
+  while (getchar() != '\n')
+    ;
+
+  return choice;
+}
 void tobinary(char str[], char binary[])
 {
   int length = strlen(str);
@@ -137,26 +157,6 @@ void tobinary(char str[], char binary[])
     }
   }
   binary[bIndex] = '\0';
-}
-int menu()
-{
-  int choice;
-  printf("\n1.Enter String.");
-  printf("\n2.Display String.");
-  printf("\n3.Reverse String.");
-  printf("\n4.Check Palindrome.");
-  printf("\n5.Count Words.");
-  printf("\n6.Count Vowels & Consonants.");
-  printf("\n7.Uppercase.");
-  printf("\n8.Lowercase.");
-  printf("\n9. Convert to Binary.");
-  printf("\n10.Exit.");
-  printf("\nPlease Enter Your Choice:");
-  scanf("%d", &choice);
-  while (getchar() != '\n')
-    ;
-
-  return choice;
 }
 int ifempty(char str[])
 {
