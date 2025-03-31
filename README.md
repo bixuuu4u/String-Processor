@@ -4,6 +4,8 @@ A simple menu-driven C program that performs various string manipulation operati
 
 ## Features
 
+TODO:
+
 - **Enter String**: Input a string (up to 99 characters).
 - **Display String**: Show the current string.
 - **Reverse String**: Reverse the order of characters in the string.
@@ -13,6 +15,8 @@ A simple menu-driven C program that performs various string manipulation operati
 - **Exit**: Terminate the program with a farewell message.
 
 ## Welcome To String-Processor
+
+TODO:
 
 1.Enter String.<br>
 2.Display String.<br>
@@ -59,6 +63,8 @@ Devloped by-bixuuu4u<br>
 - `is_palindrome()`: Checks if the string is a palindrome.
 - `count_words()`: Counts non-space characters (to be updated for word counting).
 - `count_v_c()`: Counts vowels and consonants using pointers.
+  TODO:
+- MoreUpdatesSoon
 
 ## Libraries Used:
 
@@ -79,6 +85,7 @@ Devloped by-bixuuu4u<br>
 - **[Done]Convert String to Uppercase & Lowercase**
 - **[Done]Convert To Binary**
 - **Save To File**
+- **[Done]Convert To Binary**
 - **Capitilized and Titled**
 - **Undo Last Operation Backup the previous string before modification**
 

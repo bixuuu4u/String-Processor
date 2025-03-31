@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#define EXIT_CHOICE 10
+#define EXIT_CHOICE 12
 const int SIZE = 100;
 int menu();
 int ifempty(char str[]);
@@ -16,6 +16,8 @@ int count_v_c(char str[], int *x, int *y);
 void uppercase(char str[], char upperstring[]);
 void lowercase(char str[], char upperstring[]);
 void tobinary(char str[], char binary[]);
+void capitalized(char str[], char capstring[]);
+void titled(char str[], char titlestring[]);
 int main()
 {
   char string[SIZE];
@@ -74,12 +76,13 @@ void control(int choice, char str[])
   {
     int vowel = 0, consonant = 0;
     count_v_c(str, &vowel, &consonant);
-    printf("Vowels:%d|Cosonants:%d", vowel, consonant);
+    printf("Vowels:%d|Consonants:%d", vowel, consonant);
     break;
   }
   case 7:
   {
     char upperstring[SIZE];
+    upperstring[0] = '\0';
     uppercase(str, upperstring);
     printf("\nString:%s", upperstring);
     break;
@@ -87,11 +90,28 @@ void control(int choice, char str[])
   case 8:
   {
     char lowerstring[SIZE];
+    lowerstring[0] = '\0';
     lowercase(str, lowerstring);
     printf("\nString:%s", lowerstring);
     break;
   }
   case 9:
+  {
+    char capstring[SIZE];
+    capstring[0] = '\0';
+    capitalized(str, capstring);
+    printf("\nCapitalized String:%s", capstring);
+    break;
+  }
+  case 10:
+  {
+    char titlestring[SIZE];
+    titlestring[0] = '\0';
+    titled(str, titlestring);
+    printf("\nTitled String:%s", titlestring);
+    break;
+  }
+  case 11:
   {
     char binary[SIZE * 9];
     binary[0] = '\0';
@@ -100,10 +120,12 @@ void control(int choice, char str[])
     break;
   }
   case EXIT_CHOICE:
+  {
     printf("\nBye have fun!!");
     printf("\nDevloped by-bixuuu4u");
     exit(0);
     break;
+  }
 
   default:
     break;
@@ -118,10 +140,13 @@ int menu()
   printf("\n4.Check Palindrome.");
   printf("\n5.Count Words.");
   printf("\n6.Count Vowels & Consonants.");
-  printf("\n7.Uppercase.");
-  printf("\n8.Lowercase.");
-  printf("\n9. Convert to Binary.");
-  printf("\n10.Exit.");
+  printf("\n9. Capitalized.");
+  printf("\n7. Uppercase.");
+  printf("\n8. Lowercase.");
+  printf("\n9. Capitalized.");
+  printf("\n10. Titled.");
+  printf("\n11. Convert to Binary."); 
+  printf("\n12. Exit.");              
   printf("\nPlease Enter Your Choice:");
   scanf("%d", &choice);
   while (getchar() != '\n')
@@ -129,6 +154,44 @@ int menu()
 
   return choice;
 }
+void capitalized(char str[], char capstring[])
+{
+  int length = strlen(str);
+  for (int i = 0; i < length; i++)
+  {
+    capstring[i] = tolower(str[i]);
+  }
+  if (length > 0 && isalpha(capstring[0]))
+  {
+    capstring[0] = toupper(capstring[0]);
+  }
+  capstring[length] = '\0';
+}
+void titled(char str[], char titlestring[])
+{
+  int length = strlen(str);
+  int newWord = 1;
+
+  for (int i = 0; i < length; i++)
+  {
+    titlestring[i] = tolower(str[i]);
+  }
+  titlestring[length] = '\0';
+
+  for (int i = 0; i < length; i++)
+  {
+    if (newWord && isalpha(titlestring[i]))
+    {
+      titlestring[i] = toupper(titlestring[i]);
+      newWord = 0;
+    }
+    if (titlestring[i] == ' ')
+    {
+      newWord = 1;
+    }
+  }
+}
+
 void tobinary(char str[], char binary[])
 {
   int length = strlen(str);
@@ -164,21 +227,37 @@ int ifempty(char str[])
 }
 void uppercase(char str[], char upperstring[])
 {
-  int lenght = strlen(str);
+  int length = strlen(str);
 
-  for (int i = 0; i < lenght; i++)
+  for (int i = 0; i < length; i++)
   {
-    upperstring[i] = toupper(str[i]);
+    if (isalpha(str[i]))
+    {
+      upperstring[i] = toupper(str[i]);
+    }
+    else
+    {
+      upperstring[i] = str[i];
+    }
   }
+  upperstring[length] = '\0';
 }
 void lowercase(char str[], char lowerstring[])
 {
-  int lenght = strlen(str);
+  int length = strlen(str);
 
-  for (int i = 0; i < lenght; i++)
+  for (int i = 0; i < length; i++)
   {
-    lowerstring[i] = tolower(str[i]);
+    if (isalpha(str[i]))
+    {
+      lowerstring[i] = tolower(str[i]);
+    }
+    else
+    {
+      lowerstring[i] = str[i];
+    }
   }
+  lowerstring[length] = '\0';
 }
 int count_v_c(char str[], int *x, int *y)
 {
@@ -250,5 +329,12 @@ char *input(char *str)
   fgets(str, SIZE, stdin);
   int index = strcspn(str, "\n");
   str[index] = '\0';
+  while (ifempty(str))
+  {
+    printf("Error!! Empty string not allowed. Please enter a non-empty string: ");
+    fgets(str, SIZE, stdin);
+    index = strcspn(str, "\n");
+    str[index] = '\0';
+  }
   return str;
 }
