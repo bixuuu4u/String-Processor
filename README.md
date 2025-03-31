@@ -80,14 +80,15 @@ Devloped by-bixuuu4u<br>
 
 ## Future Updates
 
-- **Improved Word Counting**: Modify `count_words()` to accurately count words (sequences of non-space characters separated by spaces).
 - **[Done]Better Print Formatting**: Enhance the output display with aligned text, borders, or color (if supported by the terminal) for a more polished user experience.
 - **[Done]Convert String to Uppercase & Lowercase**
 - **[Done]Convert To Binary**
-- **Save To File**
 - **[Done]Convert To Binary**
 - **[Done]Capitilized and Titled**
+- **Improved Word Counting**: Modify `count_words()` to accurately count words (sequences of non-space characters separated by spaces).
+- **Save To File**
 - **Undo Last Operation Backup the previous string before modification**
+- **Separte Functions and Header Files**
 
 ## Developer
 
