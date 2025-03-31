@@ -132,13 +132,6 @@ void control(int choice, char str[])
     printf("%s\nBinary Form:%s%s", BBLUE, C_END, binary);
     break;
   }
-  case EXIT_CHOICE:
-  {
-    printf("%s\nBye have fun!!%s", BPURPLE, C_END);
-    printf("%s\nDevloped by-bixuuu4u%s", BPURPLE, C_END);
-    exit(0);
-    break;
-  }
 
   default:
     break;
@@ -208,7 +201,7 @@ void titled(char str[], char titlestring[])
 void tobinary(char str[], char binary[])
 {
   int length = strlen(str);
-  int bIndex = 0;
+  int bitIndex = 0;
   for (int i = 0; i < length; i++)
   {
     int num = (unsigned char)str[i];
@@ -223,16 +216,16 @@ void tobinary(char str[], char binary[])
     }
     for (int j = 0; j < 8; j++)
     {
-      binary[bIndex] = temp[j];
-      bIndex++;
+      binary[bitIndex] = temp[j];
+      bitIndex++;
     }
     if (i < length - 1)
     {
-      binary[bIndex] = ' ';
-      bIndex++;
+      binary[bitIndex] = ' ';
+      bitIndex++;
     }
   }
-  binary[bIndex] = '\0';
+  binary[bitIndex] = '\0';
 }
 int ifempty(char str[])
 {
@@ -274,7 +267,7 @@ void lowercase(char str[], char lowerstring[])
 }
 int count_v_c(char str[], int *x, int *y)
 {
-  int lenght = strlen(str);
+  int length = strlen(str);
   int c = 0, v = 0;
   int index = 0;
 
@@ -323,12 +316,13 @@ int is_palindrome(char str[])
 }
 void reverse(char str[])
 {
-  int lenght = strlen(str);
-  for (int i = 0; i < lenght / 2; i++)
+  int left = 0,
+      right = strlen(str) - 1;
+  while (left < right)
   {
-    char temp = str[lenght - i - 1];
-    str[lenght - i - 1] = str[i];
-    str[i] = temp;
+    char temp = str[left];
+    str[left++] = str[right];
+    str[right--] = temp;
   }
 }
 void display(char *str)
