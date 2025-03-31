@@ -4,6 +4,19 @@
 #include <ctype.h>
 #define EXIT_CHOICE 12
 const int SIZE = 100;
+const char *C_END = "\033[0m";
+const char *RED = "\033[0;31m";
+const char *BRED = "\033[1;31m";
+const char *GREEN = "\033[0;32m";
+const char *BGREEN = "\033[1;32m";
+const char *YELLOW = "\033[0;33m";
+const char *BYELLOW = "\033[1;33m";
+const char *BLUE = "\033[0;34m";
+const char *BBLUE = "\033[1;34m";
+const char *PURPLE = "\033[0;35m";
+const char *BPURPLE = "\033[1;35m";
+const char *CYAN = "\033[0;36m";
+const char *BCYAN = "\033[1;36m";
 int menu();
 int ifempty(char str[]);
 void control(int choice, char str[]);
@@ -23,20 +36,20 @@ int main()
   char string[SIZE];
   string[0] = '\0';
 
-  printf("\nWelcome To String-Processor");
+  printf("\n\t%sWelcome To String-Processor%s", BPURPLE, C_END);
   int choice;
   do
   {
     choice = menu();
     if (choice == EXIT_CHOICE)
     {
-      printf("\nBye have fun!!");
-      printf("\nDevloped by-bixuuu4u");
+      printf("%s\nBye have fun!!%s", BPURPLE, C_END);
+      printf("%s\nDevloped by-bixuuu4u%s", BPURPLE, C_END);
       exit(0);
     }
     if (choice != 1 && ifempty(string))
     {
-      printf("Error!!String is empty cant do that operation.");
+      printf("%sError!!String is empty cant do that operation.%s", RED, C_END);
     }
     else
     {
@@ -62,21 +75,21 @@ void control(int choice, char str[])
   case 4:
     if (is_palindrome(str))
     {
-      printf("\n%s IS PALINDROME", str);
+      printf("%s\n%s IS PALINDROME%s", GREEN, str, C_END);
     }
     else
     {
-      printf("\n%s IS NOT PALINDROME", str);
+      printf("%s\n%s IS NOT PALINDROME%s", RED, str, C_END);
     }
     break;
   case 5:
-    printf("\nWords in %s is %d", str, count_words(str));
+    printf("%s\nWords in %s is %s:%d", BBLUE, str, C_END, count_words(str));
     break;
   case 6:
   {
     int vowel = 0, consonant = 0;
     count_v_c(str, &vowel, &consonant);
-    printf("Vowels:%d|Consonants:%d", vowel, consonant);
+    printf("%sVowels:%s%d%s|Consonants:%s%d", BBLUE, C_END, vowel, BBLUE, C_END, consonant);
     break;
   }
   case 7:
@@ -84,7 +97,7 @@ void control(int choice, char str[])
     char upperstring[SIZE];
     upperstring[0] = '\0';
     uppercase(str, upperstring);
-    printf("\nString:%s", upperstring);
+    printf("%s\nString:%s%s", BBLUE, C_END, upperstring);
     break;
   }
   case 8:
@@ -92,7 +105,7 @@ void control(int choice, char str[])
     char lowerstring[SIZE];
     lowerstring[0] = '\0';
     lowercase(str, lowerstring);
-    printf("\nString:%s", lowerstring);
+    printf("%s\nString:%s%s", BBLUE, C_END, lowerstring);
     break;
   }
   case 9:
@@ -100,7 +113,7 @@ void control(int choice, char str[])
     char capstring[SIZE];
     capstring[0] = '\0';
     capitalized(str, capstring);
-    printf("\nCapitalized String:%s", capstring);
+    printf("%s\nCapitalized String:%s%s", BBLUE, C_END, capstring);
     break;
   }
   case 10:
@@ -108,7 +121,7 @@ void control(int choice, char str[])
     char titlestring[SIZE];
     titlestring[0] = '\0';
     titled(str, titlestring);
-    printf("\nTitled String:%s", titlestring);
+    printf("%s\nTitled String:%s%s", BBLUE, C_END, titlestring);
     break;
   }
   case 11:
@@ -116,13 +129,13 @@ void control(int choice, char str[])
     char binary[SIZE * 9];
     binary[0] = '\0';
     tobinary(str, binary);
-    printf("\nBinary Form:%s", binary);
+    printf("%s\nBinary Form:%s%s", BBLUE, C_END, binary);
     break;
   }
   case EXIT_CHOICE:
   {
-    printf("\nBye have fun!!");
-    printf("\nDevloped by-bixuuu4u");
+    printf("%s\nBye have fun!!%s", BPURPLE, C_END);
+    printf("%s\nDevloped by-bixuuu4u%s", BPURPLE, C_END);
     exit(0);
     break;
   }
@@ -134,20 +147,20 @@ void control(int choice, char str[])
 int menu()
 {
   int choice;
-  printf("\n1.Enter String.");
-  printf("\n2.Display String.");
-  printf("\n3.Reverse String.");
-  printf("\n4.Check Palindrome.");
-  printf("\n5.Count Words.");
-  printf("\n6.Count Vowels & Consonants.");
-  printf("\n9. Capitalized.");
-  printf("\n7. Uppercase.");
-  printf("\n8. Lowercase.");
-  printf("\n9. Capitalized.");
-  printf("\n10. Titled.");
-  printf("\n11. Convert to Binary.");
-  printf("\n%d. Exit.", EXIT_CHOICE);
-  printf("\nPlease Enter Your Choice:");
+  printf("%s\n1.Enter String.%s", CYAN, C_END);
+  printf("%s\n2.Display String.%s", CYAN, C_END);
+  printf("%s\n3.Reverse String.%s", CYAN, C_END);
+  printf("%s\n4.Check Palindrome.%s", CYAN, C_END);
+  printf("%s\n5.Count Words.%s", CYAN, C_END);
+  printf("%s\n6.Count Vowels & Consonants.%s", CYAN, C_END);
+  printf("%s\n9. Capitalized.%s", CYAN, C_END);
+  printf("%s\n7. Uppercase.%s", CYAN, C_END);
+  printf("%s\n8. Lowercase.%s", CYAN, C_END);
+  printf("%s\n9. Capitalized.%s", CYAN, C_END);
+  printf("%s\n10. Titled.%s", CYAN, C_END);
+  printf("%s\n11. Convert to Binary.%s", CYAN, C_END);
+  printf("%s\n%d. Exit.%s", CYAN, EXIT_CHOICE, C_END);
+  printf("%s\nPlease Enter Your Choice:%s", YELLOW, C_END);
   scanf("%d", &choice);
   while (getchar() != '\n')
     ;
@@ -320,18 +333,18 @@ void reverse(char str[])
 }
 void display(char *str)
 {
-  printf("Your String: ");
+  printf("%sYour String:%s", BBLUE, C_END);
   puts(str);
 }
 char *input(char *str)
 {
-  printf("\nEnter Your String: ");
+  printf("%s\nEnter Your String:%s ", YELLOW, C_END);
   fgets(str, SIZE, stdin);
   int index = strcspn(str, "\n");
   str[index] = '\0';
   while (ifempty(str))
   {
-    printf("Error!! Empty string not allowed. Please enter a non-empty string: ");
+    printf("%sError!! Empty string not allowed. Please enter a non-empty string: %s", RED, C_END);
     fgets(str, SIZE, stdin);
     index = strcspn(str, "\n");
     str[index] = '\0';
