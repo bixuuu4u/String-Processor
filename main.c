@@ -153,13 +153,13 @@ int menu()
   printf("%s\n4.Check Palindrome.%s", CYAN, C_END);
   printf("%s\n5.Count Words.%s", CYAN, C_END);
   printf("%s\n6.Count Vowels & Consonants.%s", CYAN, C_END);
-  printf("%s\n9. Capitalized.%s", CYAN, C_END);
-  printf("%s\n7. Uppercase.%s", CYAN, C_END);
-  printf("%s\n8. Lowercase.%s", CYAN, C_END);
-  printf("%s\n9. Capitalized.%s", CYAN, C_END);
-  printf("%s\n10. Titled.%s", CYAN, C_END);
-  printf("%s\n11. Convert to Binary.%s", CYAN, C_END);
-  printf("%s\n%d. Exit.%s", CYAN, EXIT_CHOICE, C_END);
+  printf("%s\n9.Capitalized.%s", CYAN, C_END);
+  printf("%s\n7.Uppercase.%s", CYAN, C_END);
+  printf("%s\n8.Lowercase.%s", CYAN, C_END);
+  printf("%s\n9.Capitalized.%s", CYAN, C_END);
+  printf("%s\n10.Titled.%s", CYAN, C_END);
+  printf("%s\n11.Convert to Binary.%s", CYAN, C_END);
+  printf("%s\n%d.Exit.%s", CYAN, EXIT_CHOICE, C_END);
   printf("%s\nPlease Enter Your Choice:%s", YELLOW, C_END);
   scanf("%d", &choice);
   while (getchar() != '\n')
